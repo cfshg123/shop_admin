@@ -4,6 +4,9 @@ import Router from 'vue-router'
 // 导入login
 import Login from '@/components/login.vue'
 
+// 导入user
+import User from '@/components/user.vue'
+
 // 导入home
 import Home from '@/components/home.vue'
 // 引入elementui
@@ -16,18 +19,24 @@ Vue.use(ElementUI)
 Vue.use(Router)
 // 使用导航守卫
 const router = new Router({
-  routes: [{
-    path: '/',
-    redirect: '/login'
-  },
-  {
-    path: '/login',
-    component: Login
-  },
-  {
-    path: '/home',
-    component: Home
-  }
+  routes: [
+    {
+      path: '/',
+      redirect: '/login'
+    },
+    {
+      path: '/login',
+      component: Login
+    },
+    {
+      path: '/home',
+      component: Home,
+      children: [{
+        path: '/user',
+        component: User
+      }]
+
+    }
   ]
 })
 

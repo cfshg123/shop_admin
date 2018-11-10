@@ -11,22 +11,23 @@
       <el-container>
         <el-aside width="200px" class="aside">
           <el-menu
-      default-active="1-1"
+      default-active="user"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
-      unique-opened>
+      unique-opened
+      router>
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>用户管理</span>
             </template>
-            <el-menu-item index="1-1">
+            <el-menu-item index="user">
               <i class="el-icon-menu"></i>
-              <span slot="title">导航二</span>
+              <span slot="title">用户列表</span>
             </el-menu-item>
           </el-submenu>
           <el-submenu index="2">
@@ -45,7 +46,9 @@
           </el-submenu>
         </el-menu>
         </el-aside>
-        <el-main class="main">Main</el-main>
+        <el-main class="main">
+          <router-view/>
+        </el-main>
       </el-container>
   </el-container>
 </template>
